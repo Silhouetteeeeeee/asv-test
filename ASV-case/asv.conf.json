@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "project": "test",
+  "repo": "..",
+  "marix": {},
+  "dvcs": "git",
+  "environment_type": "virtualenv",
+  "pythons": "3.6",
+  "benchmark_dir": "benchmarks",
+  "html_dir": "html"
+}
