@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: benchmarks
+Version: 1.0.0
+Summary: RapidOCR
+Home-page: https://github.com/Silhouetteeeeeee/asv-test
+Author: Silhouetteeeeeee
+Author-email: liekkaskono@163.com
+License: Apache-2.0
+Keywords: ocr text_detection text_recognition db onnxruntime paddleocr openvino
+Platform: Any
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
