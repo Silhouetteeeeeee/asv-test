@@ -110,9 +110,7 @@ def getGraghData(benchmarks, graph_param_list, revision_to_hash):
         bench_params = benchmarks[benchmark]['params']
         sorted_param = product(bench_params)
         for param in graph_param_list:
-            count += 1
-            if count<791:
-                continue                
+            count += 1              
             print(count)
             Cython = f(param['Cython'])
             arch = f(param['arch'])
@@ -176,4 +174,3 @@ if __name__ == "__main__":
     benchmarks, graph_param_list, revision_to_hash, revision_to_date, tags = getData()
     print(graph_param_list)
     getGraghData(benchmarks, graph_param_list, revision_to_hash)
-    
