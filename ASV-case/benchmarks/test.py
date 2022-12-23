@@ -5,7 +5,7 @@ class TimeSuite:
     """
     def setup(self):
         self.d = {}
-        for x in range(500):
+        for x in range(100000):
             self.d[x] = None
 
     def time_keys(self):
@@ -18,12 +18,12 @@ class TimeSuite:
 
     def time_range(self):
         d = self.d
-        for key in range(500):
+        for key in range(100000):
             x = d[key]
 
     def time_xrange(self):
         d = self.d
-        for key in range(500):
+        for key in range(100000):
             x = d[key]
 
 
