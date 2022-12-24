@@ -1,4 +1,5 @@
 import time
+import calculate1
 
 class TimeSuite:
     """
@@ -7,30 +8,19 @@ class TimeSuite:
     """
     def setup(self):
         self.d = {}
-        for x in range(100000):
-            self.d[x] = None
+        calculate1.f(100)
 
     def time_keys(self):
-        time.sleep(1)
-        for key in self.d.keys():
-            pass
+        calculate1.f(1000)
 
     def time_iterkeys(self):
-        time.sleep(1)
-        for key in self.d.iterkeys():
-            pass
+        calculate1.f(10000)
 
     def time_range(self):
-        time.sleep(1)
-        d = self.d
-        for key in range(100000):
-            x = d[key]
+        calculate1.f(100000)
 
     def time_xrange(self):
-        time.sleep(1)
-        d = self.d
-        for key in range(100000):
-            x = d[key]
+        calculate1.f(1000000)
 
 
 class MemSuite:

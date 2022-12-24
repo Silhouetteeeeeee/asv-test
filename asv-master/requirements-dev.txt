@@ -1,0 +1,19 @@
+pytest
+virtualenv>=1.7
+filelock
+pip
+setuptools
+wheel
+sphinx
+sphinx_bootstrap_theme
+# Optional requirements follow:
+numpy
+scipy; platform_python_implementation != "PyPy"
+selenium
+pytest-xdist
+pytest-rerunfailures>=10.0
+pytest-timeout
+feedparser
+python-hglib
+flake8
+isort
