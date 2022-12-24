@@ -2,7 +2,8 @@ import time
 
 def f(x):
     for i in range(x):
-        print(" ")
+        for j in range(y):
+            print(" ")
 
 class TimeSuite:
     """
