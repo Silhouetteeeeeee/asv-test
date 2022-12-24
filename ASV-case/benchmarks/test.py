@@ -1,10 +1,3 @@
-import time
-
-def f(x):
-    for i in range(x):
-        for j in range(x):
-            print(" ")
-
 class TimeSuite:
     """
     An example benchmark that times the performance of various kinds
@@ -12,19 +5,26 @@ class TimeSuite:
     """
     def setup(self):
         self.d = {}
-        f(100)
+        for x in range(500):
+            self.d[x] = None
 
     def time_keys(self):
-        f(100)
+        for key in self.d.keys():
+            pass
 
     def time_iterkeys(self):
-        f(100)
+        for key in self.d.iterkeys():
+            pass
 
     def time_range(self):
-        f(100)
+        d = self.d
+        for key in range(500):
+            x = d[key]
 
     def time_xrange(self):
-        f(100)
+        d = self.d
+        for key in range(500):
+            x = d[key]
 
 
 class MemSuite:
