@@ -1,3 +1,4 @@
+import time
 class TimeSuite:
     """
     An example benchmark that times the performance of various kinds
@@ -7,6 +8,7 @@ class TimeSuite:
         self.d = {}
         for x in range(500):
             self.d[x] = None
+        time.sleep(1)
 
     def time_keys(self):
         for key in self.d.keys():
