@@ -15,16 +15,16 @@ class TimeSuite:
         f(100)
 
     def time_keys(self):
-        f(1000)
+        f(100)
 
     def time_iterkeys(self):
-        f(10000)
+        f(100)
 
     def time_range(self):
-        f(100000)
+        f(100)
 
     def time_xrange(self):
-        f(1000000)
+        f(100)
 
 
 class MemSuite:
