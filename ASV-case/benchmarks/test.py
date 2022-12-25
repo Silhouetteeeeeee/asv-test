@@ -12,7 +12,6 @@ class TimeSuite:
         self.d = {}
         for x in range(500):
             self.d[x] = None
-        time.sleep(1)
 
     def time_keys(self):
         cal.f(100)

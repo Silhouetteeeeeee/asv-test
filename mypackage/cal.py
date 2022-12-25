@@ -1,3 +1,4 @@
 def f(x):
     for i in range(x):
-        print(" ")
+        for j in range(10):
+            print(" ")

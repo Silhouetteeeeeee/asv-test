@@ -26,7 +26,7 @@
         "warmup_time": -1
     },
     "test.TimeSuite.time_keys": {
-        "code": "class TimeSuite:\n    def time_keys(self):\n        for key in self.d.keys():\n            pass\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
+        "code": "class TimeSuite:\n    def time_keys(self):\n        cal.f(100)\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
         "min_run_count": 2,
         "name": "test.TimeSuite.time_keys",
         "number": 0,
@@ -38,7 +38,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "1f799c46d59cfbe9c6116f4b2affccd162873d65d6f28cb2d5dc62026d27a6c6",
+        "version": "344a5894b8f9a5f0734e25eb12215517ba0046eeb6a8acf5eaa7138609c6c9d1",
         "warmup_time": -1
     },
     "test.TimeSuite.time_range": {
