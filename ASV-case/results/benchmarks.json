@@ -10,7 +10,7 @@
         "version": "abe86bab484550a681c61d7bb6eb081fbd37eb6d5009eba1df85c935530577b9"
     },
     "test.TimeSuite.time_iterkeys": {
-        "code": "class TimeSuite:\n    def time_iterkeys(self):\n        for key in self.d.iterkeys():\n            pass\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
+        "code": "class TimeSuite:\n    def time_iterkeys(self):\n        for key in self.d.iterkeys():\n            pass\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None",
         "min_run_count": 2,
         "name": "test.TimeSuite.time_iterkeys",
         "number": 0,
@@ -22,11 +22,11 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "aac17657fc60176c4c05e238307b8e55599f46569862d227ae709c6ac503d1e6",
+        "version": "8cbbcf6e9f798af859479108fa2aedee542bd626e61d71f54acd8a0d6300e6e6",
         "warmup_time": -1
     },
     "test.TimeSuite.time_keys": {
-        "code": "class TimeSuite:\n    def time_keys(self):\n        cal.f(100)\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
+        "code": "class TimeSuite:\n    def time_keys(self):\n        cal.f(100)\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None",
         "min_run_count": 2,
         "name": "test.TimeSuite.time_keys",
         "number": 0,
@@ -38,11 +38,11 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "344a5894b8f9a5f0734e25eb12215517ba0046eeb6a8acf5eaa7138609c6c9d1",
+        "version": "8a65e7ecc21741a7791273ef9c29ca74ebf14e6b6f88a76d71bc307eae8edff6",
         "warmup_time": -1
     },
     "test.TimeSuite.time_range": {
-        "code": "class TimeSuite:\n    def time_range(self):\n        d = self.d\n        for key in range(500):\n            x = d[key]\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
+        "code": "class TimeSuite:\n    def time_range(self):\n        d = self.d\n        for key in range(500):\n            x = d[key]\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None",
         "min_run_count": 2,
         "name": "test.TimeSuite.time_range",
         "number": 0,
@@ -54,11 +54,11 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "bcecd48fadacaec4c52bac7c409cb17103e45c9ab0ee5ca8e67f8ed2734cfdd5",
+        "version": "cc3e85248a6284df968bcf8afe866da285261eb2487c10e9dd9e2d17a05deb47",
         "warmup_time": -1
     },
     "test.TimeSuite.time_xrange": {
-        "code": "class TimeSuite:\n    def time_xrange(self):\n        d = self.d\n        for key in range(500):\n            x = d[key]\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None\n        time.sleep(1)",
+        "code": "class TimeSuite:\n    def time_xrange(self):\n        d = self.d\n        for key in range(500):\n            x = d[key]\n\n    def setup(self):\n        self.d = {}\n        for x in range(500):\n            self.d[x] = None",
         "min_run_count": 2,
         "name": "test.TimeSuite.time_xrange",
         "number": 0,
@@ -70,7 +70,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "c59ac4fcc9052a1577ffc3bcde2360aa966bbff188a416e370449cacba95fd8b",
+        "version": "2a6c03fa5622b30db85855d16bfcca8e3fba5137d4190ee144f2cbf672d46e44",
         "warmup_time": -1
     },
     "version": 2
