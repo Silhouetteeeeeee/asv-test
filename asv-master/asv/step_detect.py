@@ -539,7 +539,7 @@ def solve_potts(y, w, gamma, min_size=1, max_size=None,
 
         F[x] = gamma * J(x) + sum(|y - x|**p)
 
-    where J(x) is the number of jumps (x_{j+1} != x_j) in x.
+    where J(x) is the number of NOTE: jumps (x_{j+1} != x_j) in x.
 
     The algorithm used is described in Ref. [1]_, it uses dynamic
     programming to find an exact solution to the problem (within the
@@ -615,7 +615,7 @@ def solve_potts(y, w, gamma, min_size=1, max_size=None,
     #     For interval (inclusive) right edge r in {0, ..., n-1},
     #     the best (exclusive) left edge is at l=p[r].
     #     Where intervals overlap, the rightmost one has priority.
-
+    #NOTE: 得到分段
     if hasattr(mu_dist, 'find_best_partition'):
         p = mu_dist.find_best_partition(gamma, min_size, max_size, min_pos, max_pos)
     else:
@@ -628,6 +628,7 @@ def solve_potts(y, w, gamma, min_size=1, max_size=None,
             B[r + 1 - i0] = math.inf
             a = max(r + 1 - max_size, i0)
             b = max(r + 1 - min_size + 1, i0)
+            #NOTE: 根据r找到l的位置，并实现优化目标最优
             for l in range(a, b):
                 b = B[l - i0] + gamma + dist(l, r)
                 if b <= B[r + 1 - i0]:
@@ -718,6 +719,7 @@ def solve_potts_autogamma(y, w, beta=None, **kw):
                 l = r
             return s
 
+        #NOTE: 在（-1，1）这个区间找到最佳的rho
         rho_best = golden_search(lambda rho: sigma_star(r, v, rho), -1, 1,
                                  xatol=0.05, expand_bounds=True)
 
@@ -745,6 +747,7 @@ def solve_potts_autogamma(y, w, beta=None, **kw):
 
     # Try to find best gamma (golden section search on log-scale); we
     # don't need an accurate value for it however
+    #NOTE: 找到最佳的gamma下的数据
     a = math.log(0.1 / n)
     b = 0.0
     golden_search(f, a, b, xatol=abs(a) * 0.1, ftol=0, expand_bounds=True)
@@ -752,6 +755,7 @@ def solve_potts_autogamma(y, w, beta=None, **kw):
 
 
 def solve_potts_approx(y, w, gamma=None, min_size=1, **kw):
+    #NOTE: 得到分割
     """
     Fit penalized stepwise constant function (Potts model) to data
     approximatively, in linear time.
@@ -784,6 +788,7 @@ def solve_potts_approx(y, w, gamma=None, min_size=1, **kw):
 
 
 def merge_pieces(gamma, right, values, dists, mu_dist, max_size):
+    #NOTE: 对前面得到的间隔进行整合和调整，使代价函数下降
     """
     Combine consecutive intervals in Potts model solution, if doing
     that reduces the cost function.
@@ -805,12 +810,13 @@ def merge_pieces(gamma, right, values, dists, mu_dist, max_size):
 
             # Check whether merging consecutive intervals results to
             # decrease in the cost function
+            
             change = (dist(l, right[j] - 1) -
                       (dist(l, right[j - 1] - 1) + dist(right[j - 1], right[j] - 1) + gamma))
             if change <= min_change:
                 min_change = change
                 min_change_j = j - 1
-            l = right[j - 1]
+            l = right[j - 1] 
 
         if min_change_j < len(right):
             del right[min_change_j]

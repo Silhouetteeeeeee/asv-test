@@ -1,4 +1,5 @@
 import time
+import cal
 class TimeSuite:
     """
     An example benchmark that times the performance of various kinds
@@ -11,8 +12,7 @@ class TimeSuite:
         time.sleep(1)
 
     def time_keys(self):
-        for key in self.d.keys():
-            pass
+        cal.f(100)
 
     def time_iterkeys(self):
         for key in self.d.iterkeys():
