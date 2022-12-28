@@ -115,9 +115,6 @@ def getGraghData(benchmarks, graph_param_list, revision_to_hash):
            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
            "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
            ]
-    headers = {
-    "User-Agent": random.choice(ua_list)
-    }
 
     proxies={
     'http': None,
@@ -128,6 +125,9 @@ def getGraghData(benchmarks, graph_param_list, revision_to_hash):
     dict = {}
     
     for benchmark in benchmarks:
+        headers = {
+            "User-Agent": random.choice(ua_list)
+        }
         bench_param_name = benchmarks[benchmark]['param_name']
         bench_params = benchmarks[benchmark]['params']
         sorted_param = product(bench_params)
@@ -154,6 +154,7 @@ def getGraghData(benchmarks, graph_param_list, revision_to_hash):
             except (json.decoder.JSONDecodeError, requests.exceptions.JSONDecodeError):
                 continue
             except:
+                time.sleep(10)
                 for i in range(100):
                     r = requests.get(url=url, headers=headers, proxies=proxies, verify=False)
                     if r.status_code == 200:
@@ -163,33 +164,34 @@ def getGraghData(benchmarks, graph_param_list, revision_to_hash):
             # session.trust_env = False
             # r = session.get()
             strs = []
-            data = {'hash':[]}
+            data = {}
             if not len(sorted_param) == 0:
                 for param in sorted_param:
-                    str1 = ""
+                    str1 = "("
                     for i, name in enumerate(bench_param_name):
-                        str1 += name + "-" + param[i].strip("'")
+                        str1+=param[i]
+                        # 改为（参数1，参数2, 参数3......）的格式
                         if i != len(bench_param_name)-1:
-                            str1 += ","
+                            str1 += ", "
+                    str1 += ")"
                     strs.append(str1)
-                    data[str1] = []
+                    data[str1] = {}
             else:
                 strs.append('default')
-                data[strs[0]] = []  
+                data[strs[0]] = {}
             #TODO: 读取数据存到json中
             for result in results:
                 id = str(result[0])
                 hash = revision_to_hash[id]
                 ts = result[1]
-                data['hash'].append(hash)
                 if type(ts) == list:
                     for i, t in enumerate(ts):
-                        data[strs[i]].append(t)
+                        data[strs[i]][hash] = t
                 else:
-                    data['default'] = ts
+                    data['default'][hash] = ts
             
             dict[benchmark+"-Param"+str(count%3)] = data
-            
+            print(data)
             time.sleep(1)
     with open('./benchmarks_list.json', "a+") as fp:
         json.dump(dict, fp, indent=2)
